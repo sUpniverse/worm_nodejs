@@ -4,14 +4,14 @@
 
 - 호출 스택과 이벤트 루프
 
-- 이벤트 기반, 싱글쓰레드, 논블러킹IO
+- 이벤트 기반, 싱글쓰레드, 논블러킹IO  
 
 
 ## REPL과 헬로 노드
 
 - Read, Evalute, Print, Loop
 
-- console.log('hello node');
+- console.log('hello node');  
 
 
 ## 호출 스택과 이벤트 루프
@@ -49,7 +49,7 @@ console.log('끝');
 ```
 
 - 태스크 큐의 호출시기
-  - setTimeout, setInterval, setImmediate, Promise resolve, reject, (async, await), 이벤트 리스너의 콜백
+  - setTimeout, setInterval, setImmediate, Promise resolve, reject, (async, await), 이벤트 리스너의 콜백  
 
 
 
