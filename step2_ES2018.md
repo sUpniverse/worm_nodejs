@@ -188,7 +188,7 @@ const [node,obj, ,bool] = array;
 
 
 
-#### 콜백과 프로미스(Promise) 
+## 콜백과 프로미스(Promise) 
 
 - 비동기로 실행되는 콜백의 단점을 보완하려고 프로미스를 도입
 
@@ -289,7 +289,7 @@ const [node,obj, ,bool] = array;
   - 3개를 동시에 담아서 사용할 수도 있다. (단, 하나라도 error가 나면 error로 진행)
 
 
-##async/await
+## async/await
 
 - Promise의 then(), catch() 를  사용하지 않고 동기식으로 보여지게 도와준다.
 
