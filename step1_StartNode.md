@@ -1,4 +1,4 @@
-#START NODE
+# START NODE
 
 - REPL과 헬로 노드
 
@@ -7,14 +7,14 @@
 - 이벤트 기반, 싱글쓰레드, 논블러킹IO
 
 
-##REPL과 헬로 노드
+## REPL과 헬로 노드
 
 - Read, Evalute, Print, Loop
 
 - console.log('hello node');
 
 
-##호출 스택과 이벤트 루프
+## 호출 스택과 이벤트 루프
 
 ```javascript
 /*
@@ -53,7 +53,7 @@ console.log('끝');
 
 
 
-##이벤트 기반, 싱글쓰레드, 논블러킹IO
+## 이벤트 기반, 싱글쓰레드, 논블러킹IO
 
 - 이벤트 기반(event driven)
 
