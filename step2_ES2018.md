@@ -16,7 +16,7 @@
 - async/await
 
 
-##const와 let
+## const와 let
 
 - const
 
@@ -34,7 +34,7 @@
   - 변수, 값을 바꿀 수 있다.
 
 
-##템플릿 문자열(백틱,`)
+## 템플릿 문자열(백틱,`)
 
 ```javascript
 const a = 'hello';
@@ -50,7 +50,7 @@ const d = `"'"''"`
 
 
 
-##객체 리터럴의 변화
+## 객체 리터럴의 변화
 
 ```javascript
 /*
@@ -86,7 +86,7 @@ var newObject = {
 
 
 
-##화살표 함수 (=>)
+## 화살표 함수 (=>)
 
 - 기존의 function() {}와 거의 비슷 
 
@@ -130,7 +130,7 @@ var newObject = {
     ```
 
 
-##비구조화 할당(destructuring)
+## 비구조화 할당(destructuring)
 
 ```javascript
 //step.1
@@ -174,7 +174,7 @@ const [node,obj, ,bool] = array;
   - getCandy를 하면 값을 불러오지 못한다.
 
 
-##rest 문법과 Q&A
+## rest 문법과 Q&A
 
 - …변수
 
