@@ -10,11 +10,14 @@
 
 
 
-   
+
 ## REPL과 헬로 노드
 
 - Read, Evalute, Print, Loop
-
+  - **Read**: 사용자의 입력을 읽고, JavaScript 데이터 구조로 입력을 파싱하고, 메모리에 저장합니다.
+  - **Eval**: 데이터 구조를 평가합니다.
+  - **Print**: 결과를 인쇄합니다.
+  - **Loop**: 사용자가 `ctrl`+`c`를 두 번 누를 때까지 명령을 반복합니다.
 - console.log('hello node');  
 
 
