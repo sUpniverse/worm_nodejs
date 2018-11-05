@@ -65,34 +65,48 @@
   -  마찬가지로 clearInterval()로 해제 가능
 - setImmediate()
   - 콜백을 즉시 실행
+
   - 이벤트 루프로 보내고 싶을때 setImmediate()를 사용
+
   - clearImmediate()로 즉시 실행할 콜백 취소
+
 
 
 ## __filename, __dirname, process
 
 - __filename
+
   - 현재 파일 이름
 - __dirname
+
   - 현재 파일의 위치
 - process
   - Node.js의 프로세스 정보를 제공
   - process.arch
+
     - 현재 사용중인 아키텍쳐
   - process.env
+
     - 환경변수 객체 반환
   - process.exit
+
     - Node.js의 프로세스를 종료
   - process.platform
+
     - Node.js 프로세스가 실행중인 운영체제 플랫폼 식별자를 반환
   - process.memoryUsage
+
     - Node.js 프로세스의 메모리 사용량을 바이트 단위로 설명하는 객체 반환
   - process.uptime
+
     - Node.js 프로세스가 실행된 시간 반환
   - process.versions
+
     - Node.js와 그 종속성 버전을 나열하는 객체 반환
   - process.cwd
+
     - 프로세스 실행 위치
+
 
 ## Module
 
@@ -138,9 +152,65 @@
 - util
   - util.deprecate()
     - 곧 서비스 종료될 메서드임을 알려줄때
-  - util.promisify ()
+  - util.promisify()
     - callback hell을 막기위해 promise형식 쓸수 있도록 바꿔준다.
     - 모든 객체가 promise를 지원하지 않기때문에 쓰는것
     - prmoise형식으로 바꾸어 지면, async-await으로도 바꿀수 있다.
   - util.format()
     - console.log()와 비슷한 기능 단, 화면 출력이 아닌 문자열로 반환
+
+- fs 모듈
+  - 동기
+    - `fs.readFile('경로','콜백')`,`fs.writeFile('경로','콜백')`
+  - 비동기
+    - `fs.readFileSync('경로')` 리턴값을 받고, 콜백을 쓰지 않음
+
+- 버퍼와 스트림
+
+  - 이미지를 업로드 할때 사용
+
+  - 스트림은 이벤트 기반을 동작
+
+  - 스트림은 버퍼의 흐름이기 때문에 여러개의 스트림을 이어 버퍼가 흘러가게 할 수 있음
+
+    - 파이프를 이용해 잇는다. (복사한다)
+
+    - 혹은 `fs.copyFile()`을 이용 할 수도 있다.
+
+    - `createReadStream()`을 이용해 읽은 파일을 `zlib`로 압축하고 싶을때 파이프를 사용한다.
+
+      ```javascript
+      const zlibStream = zlib.createGzip();
+      fs.createReadFile().pipe(zlibStream);
+      ```
+
+- 기타 fs 메서드
+
+  - `fs.access()`
+  - `fs.unlink()`
+  - `fs.rmdir()`
+
+- events 모듈
+
+  - `.addListener()`
+  - `.on()`
+  - `.once()`
+    - 한번만 불려지고 그 다음부터는 불려지지 않음
+  - `.emit()`
+    - 이벤트를 호출해줌
+  - `.removeAllListeners()`
+    - 하나의 이벤트에 여러 listener가 달리기 때문에 ALL 이다.
+    - 하나만 지우겠다면 `.removeListener()`
+  - `.listenerCount()`
+    - 이벤트 리스너가 몇개 달려있는지
+
+- 예외 처리하기
+
+  - Node.js는 싱글스레드 이기 때문에 전체 서버가 죽게될 수 있으므로 예외처리가 필수
+  - 예외가 발생하면 try ~ catch로 잡는다
+    - 물론 try ~ catch 로 잡기전에 에러가 안잡을 수 있도록 만드는게 좋다.
+  - 콜백으로 err가 잡힐땐 죽진 않는다. 다만 에러에 대한 처리가 필요
+  - `process.on('uncaughtException',())`
+    - Try ~ catch로 잡히는 에러를 한방에 잡아줌
+    - 하지만, 여기에 의존하지 말고 근본적인 에러의 원인을 해결하는것이 중요
+    - 가끔 콜백에 서버를 복구하는 코드를 넣는데, 무조건 실행된다는것을 보장하지 못한다.
