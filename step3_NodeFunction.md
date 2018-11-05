@@ -1,12 +1,11 @@
 # 노드 기능 알아보기
 
 - 노드 모듈 시스템
-
 - global 객체
-
 - console 객체
-
 - 타이머(setTimeout, setInterval, setImmediate)
+- filename, dirname,process
+- Module
 
 
 ## 노드 모듈 시스템
