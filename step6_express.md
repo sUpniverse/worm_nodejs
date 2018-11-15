@@ -1,12 +1,16 @@
 # 익스프레스 웹 서버
 
+- express start
+- Middle
+- Template engine
+
 
 
 ## Express-generator, npm scripts, bin/www
 
 - express를 이용한, 자동 생성
 
-  ```
+  ```shell
   $ npm install -g express-generator 
   ```
 
@@ -14,20 +18,20 @@
 
 - 앱 생성
 
-  ```
+  ```shell
   $ express <appname> view=pug
   ```
 
 - 그럼 다음과 같이 뜨는데 똑같이 따라 치면된다
 
-  ```
-  change directory:
+  ```shell
+  #change directory:
   $ cd learn-express
   
-  install dependencies:
+  #install dependencies:
   $ npm install
   
-  run the app:
+  #run the app:
   $ DEBUG=learn-express:* npm start
   ```
 
