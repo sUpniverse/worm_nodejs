@@ -57,3 +57,91 @@
   ```
 
   - 비구조화 할당(destructuring)을 통해 sequelize 객체를 할당받고 `.sync()`를 통해 db table을 생성한다.
+
+- 라우터 만들기
+
+  - routes 폴더 하위에 만들었던, 모델들에 관한 router를 만들어 준다 
+
+  - controller 개념?, 근데 app.js에도 전체 등록해야함
+
+  - C
+
+    ```javascript
+    router.post('/',(req,res) => {
+        Comment.create({
+            commenter: req.body.id,
+            comment: req.body.comment
+        })
+            .then((result) => {
+                console.log(result);
+                res.status(201).json(result);
+            })
+            .catch((err) => {
+                console.error(err);
+                next(err);
+            })
+    });
+    ```
+
+  - R
+
+    ```javascript
+    router.get('/:id',(req,res) => {
+        Comment.findAll({
+            include: {
+                model: User,
+                where: {id: req.params.userId}
+            }
+        })
+            .then((comments) => {
+                console.log(comments);
+                res.json(comments);
+            })
+            .catch((err) => {
+                console.error(err);
+                next(err);
+            })
+    });
+    ```
+
+    - 특별한 case로 userId를 이용해서 게시물 전체를 긁어오는 R임
+    - join된 User의 id를 통해 게시물을 가져오는것으로, include 기능이 추가됌
+
+  - U
+
+    ```javascript
+    router.patch('/:id',(req,res) => {
+        Comment.update({
+            comment: req.body.comment
+        },{
+            where: {id: req.params.id}
+        })
+            .then((result) => {
+                console.log(result);
+    
+            })
+            .catch((err) => {
+                console.error(err);
+                next(err);
+            });
+    
+    });
+    ```
+
+  - D
+
+    ```javascript
+    router.delete('/:id',(req,res) => {
+        Comment.destroy({
+            where: {id: req.params.id}
+        })
+            .then((result) => {
+                console.log(result);
+                res.status(201).json(result);
+            })
+            .catch((err) => {
+                console.error(err);
+                next(err);
+            });
+    });
+    ```

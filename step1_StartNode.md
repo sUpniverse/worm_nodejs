@@ -58,7 +58,7 @@ console.log('끝');
 - 태스크 큐의 호출시기
   - setTimeout, setInterval, setImmediate, Promise resolve, reject, (async, await), 이벤트 리스너의 콜백  
 - 이벤트 루프
-
+  ![image](./images/eventloof.png)
 - **timers**: 이 단계는 `setTimeout()`과 `setInterval()`로 스케줄링한 콜백을 실행합니다.
 - **pending callbacks**: 다음 루프 반복으로 연기된 I/O 콜백들을 실행합니다.
 - **idle, prepare**: 내부용으로만 사용합니다.
