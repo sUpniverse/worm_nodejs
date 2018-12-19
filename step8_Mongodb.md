@@ -132,4 +132,3 @@
   - .populate()를 해주면된다.
   - include는 join이지만, populate는 mongodb내에 있는 기능이 아닌, mongoose가 하는 기능이다.
   - 그래서 성능이 좀 떨어진다.
-
