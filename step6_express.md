@@ -91,12 +91,17 @@
     - 정적파일 불러올때 쓴다.
     - next()를 하지 않고, 원하는 파일이 없을때만 next()를 하기때문에 맨처음에 app.use에 넣는다
 
+  - express.json()
+
+    - http request body가 json 일때도 파싱할 수 있도록 한다.
+
 - 라우팅 미들웨어(라우터도 미들웨어다!)
 
   - app.get, app.post등이 많아지면,, 서비스가 커지면 코딩이 많아지니 분리한다.
 
     ```javascript
     /* app.js */
+    const indexRouter = require('./routes/')
     app.use("/",indexRouter)
     
     /* indexRouter */
@@ -148,9 +153,21 @@
   - pug 설정
 
     ```javascript
-    app.set();
-    app.set();
+    /* app.js */
+    app.set('views', path.join(__dirname,'views'));
+    app.set('view engine','pug');
+    app.use(express.static(path.join(__dirname, 'public')));
+    
+    /* index.js */
+    res.render('join',{
+    	title: '회원가입',
+    	user: req.user,
+    	joinError: req.flash('joinError')});
     ```
+
+    - $(현재디렉토리)/views를 views로 쓰고, view engine을 pug로 쓰겠다 선언
+    - public의 경로된 파일을 사용하겠다.
+    - 아래는 직접적으로 어떠한 파일을 페이지에 띄워줄것인지, 또한 어떠한 페이지내에서 필요한 변수에 대한 값을 지정해 놓는다.
 
   - pug는 들여쓰기로 부모 자식 태그를 구분, html처럼 <>를 쓰지 않는다.
 

@@ -57,8 +57,7 @@ console.log('끝');
 
 - 태스크 큐의 호출시기
   - setTimeout, setInterval, setImmediate, Promise resolve, reject, (async, await), 이벤트 리스너의 콜백  
-- 이벤트 루프
-  ![image](./images/eventloof.png)
+- 이벤트 루프![image](./images/eventloof.png)
 - **timers**: 이 단계는 `setTimeout()`과 `setInterval()`로 스케줄링한 콜백을 실행합니다.
 - **pending callbacks**: 다음 루프 반복으로 연기된 I/O 콜백들을 실행합니다.
 - **idle, prepare**: 내부용으로만 사용합니다.
@@ -67,7 +66,18 @@ console.log('끝');
 - **close callbacks**: 일부 close 콜백들, 예를 들어 `socket.on('close', ...)`
 - 자세한 설명, [API](https://nodejs.org/ko/docs/guides/event-loop-timers-and-nexttick/)
 
-## 이벤트 기반, 싱글쓰레드, 논블러킹IO
+## 이벤트 기반, 싱글 쓰레드, 논 블러킹IO
 
 - 이벤트 기반(event driven)
+
+- 싱글 쓰레드
+
+- 논 블러킹IO
+
+  - 기존의 동기식 IO는 디스크에 파일 쓰기를 요청하고, 디스크가 파일을 쓰는 동안 프로그램은 write에 멈춤
+  - 비동기 IO는 파일 쓰기 요청을 할 때, 파일 요청이 끝나면 호출될 함수(callback)을 같이 넘긴다.
+  - 프로그램은 다음 코드로 진행하다가, 파일을 다 쓰고 callback 호출을 통해 끝났음을 알고 다음 처리를 한다.
+
+  ![image](/Users/sup/Programming/Node.js_workspace/nodejs_inflearn/images/Async.png)
+
 
